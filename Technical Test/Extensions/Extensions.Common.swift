@@ -3,13 +3,9 @@ import AVKit
 import AVFoundation
 import SafariServices
 
-
-
-
 //MARK:  NAVIGATION CONTROLLER
 
-func mainNavigationController() -> UINavigationController?
-{
+func mainNavigationController() -> UINavigationController? {
     guard
         let appDelegate = UIApplication.shared.delegate as? AppDelegate,
         let mainWindow = appDelegate.window,
@@ -18,43 +14,6 @@ func mainNavigationController() -> UINavigationController?
     
     return rootViewController
 }
-
-
-//MARK:  VIEW CONTROLLER
-extension UIViewController
-{
-    @IBAction func POP_BACK(_ sender: UIButton)
-    {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    class func instantiateFromStoryboard(_ name: String) -> Self
-    {
-        return instantiateFromStoryboardHelper(name)
-    }
-    
-    fileprivate class func instantiateFromStoryboardHelper<T>(_ name: String) -> T
-    {
-        let storyboard = UIStoryboard(name: name, bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! T
-        return controller
-    }
-    
-    var hasTopNotch: Bool
-    {
-        if #available(iOS 13.0,  *)
-        {
-            return UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.safeAreaInsets.top ?? 0 > 20
-        }
-        else
-        {
-            return UIApplication.shared.delegate?.window??.safeAreaInsets.top ?? 0 > 20
-        }
-    }
-    
-}
-
-
 
 //MARK:  TABLEVIEW, COLLECTIONVIEW & SCROLLVIEW
 
