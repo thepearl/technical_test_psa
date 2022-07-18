@@ -11,9 +11,15 @@ import OpenWeatherAPI
 class RootViewController: UIViewController {
     @IBOutlet weak var savedCitiesTableView: UITableView!
     
+    var savedCities: [OWResponse] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setDelegates()
     }
 }
@@ -21,7 +27,9 @@ class RootViewController: UIViewController {
 // MARK: - IBActions
 extension RootViewController {
     @IBAction func addCityButtonTapped(_ sender: UIButton) {
-        present(AddCityViewController.instantiateFromStoryboard("Main"), animated: true, completion: nil)
+        let addCitySheet = AddCityViewController.instantiateFromStoryboard("Main")
+        addCitySheet.delegate = self
+        present(addCitySheet, animated: true, completion: nil)
     }
 }
 
@@ -31,6 +39,7 @@ extension RootViewController: UITableViewDelegate, UITableViewDataSource {
     func setDelegates() {
         savedCitiesTableView.delegate = self
         savedCitiesTableView.dataSource = self
+        self.savedCities = UserDefaultsInteractor.shared.getCitiesFromCache()
         savedCitiesTableView.reloadData()
     }
     
@@ -43,18 +52,22 @@ extension RootViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return savedCities.isEmpty ? 1 : savedCities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        guard  let emptyCell = tableView.dequeueReusableCell(withIdentifier: EmptyCell.reuseIdentifier, for: indexPath) as? EmptyCell else {
-        //            return UITableViewCell() }
-        //        return emptyCell
+        guard !savedCities.isEmpty,
+              indexPath.row < savedCities.count else {
+            guard let emptyCell = tableView.dequeueReusableCell(withIdentifier: EmptyCell.reuseIdentifier, for: indexPath) as? EmptyCell else {
+                return UITableViewCell() }
+            return emptyCell
+        }
         
         guard let cityPreviewCell = tableView.dequeueReusableCell(withIdentifier: CityPreviewCell.reuseIdentifier, for: indexPath) as? CityPreviewCell else {
             return UITableViewCell()
         }
+        
+        cityPreviewCell.previewableObject = savedCities[indexPath.row]
         return cityPreviewCell
     }
-    
 }

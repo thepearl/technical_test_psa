@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import OpenWeatherAPI
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        OpenWeatherAPI.apiKey = Constants.OWApiKey
+        #if DEBUG
+        OpenWeatherAPI.isErrorLoggingEnabled = true
+        #endif
         return true
     }
     
