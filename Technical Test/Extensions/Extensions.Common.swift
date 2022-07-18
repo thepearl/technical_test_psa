@@ -775,97 +775,6 @@ extension String
     }
 }
 
-extension UIButton {
-    //MARK:- Animate check mark
-    func checkboxAnimation(closure: @escaping () -> Void){
-        guard let image = self.imageView else {return}
-        
-        UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveLinear, animations: {
-            image.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-            
-        }) { (success) in
-            UIView.animate(withDuration: 0.1, delay: 0, options: .curveLinear, animations: {
-                self.isSelected = !self.isSelected
-                //to-do
-                closure()
-                image.transform = .identity
-            }, completion: nil)
-        }
-        
-    }
-}
-
-extension UILabel {
-    
-    // MARK: - spacingValue is spacing that you need
-    func addInterlineSpacing(spacingValue: CGFloat = 2) {
-        
-        // MARK: - Check if there's any text
-        guard let textString = text else { return }
-        
-        // MARK: - Create "NSMutableAttributedString" with your text
-        let attributedString = NSMutableAttributedString(string: textString)
-        
-        // MARK: - Create instance of "NSMutableParagraphStyle"
-        let paragraphStyle = NSMutableParagraphStyle()
-        
-        // MARK: - Actually adding spacing we need to ParagraphStyle
-        paragraphStyle.lineSpacing = spacingValue
-        
-        // MARK: - Adding ParagraphStyle to your attributed String
-        attributedString.addAttribute(
-            .paragraphStyle,
-            value: paragraphStyle,
-            range: NSRange(location: 0, length: attributedString.length
-            ))
-        
-        // MARK: - Assign string that you've modified to current attributed Text
-        attributedText = attributedString
-    }
-    
-}
-
-
-extension String {
-    
-    /// Apply strike font on text
-    func strikeThrough() -> NSAttributedString {
-        let attributeString = NSMutableAttributedString(string: self)
-        attributeString.addAttribute(
-            NSAttributedString.Key.strikethroughStyle,
-            value: 1,
-            range: NSRange(location: 0, length: attributeString.length))
-        
-        return attributeString
-    }
-}
-
-// An attributed string extension to achieve colors on text.
-extension NSMutableAttributedString {
-    
-    func setColor(color: UIColor, forText stringValue: String) {
-        let range: NSRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)
-        self.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
-    }
-}
-
-extension String {
-    func convertToTimeInterval() -> TimeInterval {
-        guard self != "" else {
-            return 0
-        }
-        
-        var interval:Double = 0
-        
-        let parts = self.components(separatedBy: ":")
-        for (index, part) in parts.reversed().enumerated() {
-            interval += (Double(part) ?? 0) * pow(Double(60), Double(index))
-        }
-        
-        return interval
-    }
-}
-
 extension Date
 {
     //"2021-02-24 14:52:56"
@@ -891,20 +800,6 @@ extension Date
         return (month: month, day: day, hour: hour, minute: minute, second: second)
     }
 }
-
-extension String
-{
-    init(hours: Int, minutes: Int, seconds: Int) {
-        self = String(hours) + "h " + String(minutes) + "m " + String(seconds) + "s"
-    }
-    
-    init(minutes: Int, seconds: Int)
-    {
-        self = String(minutes) + ":" + String(seconds)
-    }
-}
-
-
 // Safari services
 extension UIViewController
 {
@@ -918,34 +813,4 @@ extension UIViewController
             present(safariViewController, animated: true)
         }
     }
-    
-    func openSocialLink(for social: SocialMedias, username: String)
-    {
-        if let socialMediaURL = URL(string: social.rawValue + username)
-        {
-            if UIApplication.shared.canOpenURL(socialMediaURL)
-            {
-                UIApplication.shared.open(socialMediaURL, options: [:], completionHandler: nil)
-            }
-            else
-            {
-                openSafari(open: (social == .facebook ? "https://facebook.com/" : "http://instagram.com/") + username)
-            }
-        }
-    }
 }
-
-extension String{
-    func replaceWhiteSpaces() -> String{
-        let encodedString = self.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? self
-        return encodedString.replace(string: " ", replacement: "%20")
-    }
-}
-
-enum SocialMedias: String
-{
-    case facebook = "fb://profile?id="
-    case instagram = "instagram://user?username="
-}
-
-
