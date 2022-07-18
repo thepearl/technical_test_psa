@@ -14,7 +14,4 @@ protocol Previewable {
     var feelsLikeDegree: Double { get }
     var weatherIconIcon: String { get }
     var place: String { get }
-    
-    func getFahrenheit(valueInKelvin: Double?) -> Double
-    func getCelsius(valueInKelvin: Double?) -> Double
 }

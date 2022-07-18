@@ -70,4 +70,15 @@ extension RootViewController: UITableViewDelegate, UITableViewDataSource {
         cityPreviewCell.previewableObject = savedCities[indexPath.row]
         return cityPreviewCell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard
+            !savedCities.isEmpty,
+            indexPath.row < savedCities.count
+        else { return }
+        
+        let detailsViewController = CityDetailsViewController.instantiateFromStoryboard("Main")
+        detailsViewController.details = savedCities[indexPath.row]
+        navigationController?.pushViewController(detailsViewController, animated: true)
+    }
 }

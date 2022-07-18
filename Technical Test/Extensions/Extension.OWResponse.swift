@@ -8,35 +8,20 @@
 import Foundation
 import OpenWeatherAPI
 
+extension OWResponse: Identifiable { }
+
 extension OWResponse: Previewable {
-    func getFahrenheit(valueInKelvin: Double?) -> Double {
-        if let kelvin = valueInKelvin {
-            return ((kelvin - 273.15) * 1.8) + 32
-        } else {
-            return 0
-        }
-    }
-    
-    func getCelsius(valueInKelvin: Double?) -> Double {
-        if let kelvin = valueInKelvin {
-            return kelvin - 273.15
-        } else {
-            return 0
-        }
-    }
-    
-    
     var weatherDescription: String {
         weather?.first?.weatherDescription ?? "no data"
     }
     
     var weatherDegree: Double {
-        getCelsius(valueInKelvin: main?.temp).rounded()
-        
+        main?.temp?.getCelsius().rounded() ?? 0
+
     }
     
     var feelsLikeDegree: Double {
-        getCelsius(valueInKelvin: main?.feelsLike).rounded()
+        main?.feelsLike?.getCelsius().rounded() ?? 0
     }
     
     var weatherIconIcon: String {
@@ -45,5 +30,31 @@ extension OWResponse: Previewable {
     
     var place: String {
         name ?? ""
+    }
+}
+
+extension OWResponse: PreviewDetails {
+    var windSpeed: Double {
+        wind?.speed?.getCelsius().rounded() ?? 0
+    }
+    
+    var temp: Double {
+        main?.temp?.getCelsius().rounded() ?? 0
+    }
+    
+    var minTemp: Double {
+        main?.tempMin?.getCelsius().rounded() ?? 0
+    }
+    
+    var maxTemp: Double {
+        main?.tempMax?.getCelsius().rounded() ?? 0
+    }
+    
+    var pressureDegree: Double {
+        Double(main?.pressure ?? 0).rounded()
+    }
+    
+    var humidityDegree: Double {
+        Double(main?.humidity ?? 0).rounded()
     }
 }

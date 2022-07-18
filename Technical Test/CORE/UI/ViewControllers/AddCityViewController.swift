@@ -147,10 +147,6 @@ extension AddCityViewController: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         //get result, transform it to our needs and fill our dataSource
         self.searchSource = completer.results.map { $0.title }
-        DispatchQueue.main.async {
-            print(completer.results.first)
-            //            print(self.searchSource)
-        }
     }
     
     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
