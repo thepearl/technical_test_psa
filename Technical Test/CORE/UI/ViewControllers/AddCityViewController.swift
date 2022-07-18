@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import OpenWeatherAPI
 
 class AddCityViewController: UIViewController {
     @IBOutlet weak var countryLabel: UILabel!
@@ -16,6 +17,7 @@ class AddCityViewController: UIViewController {
     @IBOutlet weak var latitudeLabel: UILabel!
     
     private var locationManager = LocationManager()
+    private var foundCondidate: CLLocationCoordinate2D? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,7 @@ class AddCityViewController: UIViewController {
 //MARK: - Methods
 extension AddCityViewController {
     func setupData(using placemark: CLPlacemark) {
+        foundCondidate = CLLocationCoordinate2D(latitude: -1, longitude: -1)
         var output = "Our location is:"
         if let country = placemark.country {
             output = output + "\n\(country)"
@@ -40,10 +43,12 @@ extension AddCityViewController {
         }
         if let long = placemark.location?.coordinate.longitude {
             output = output + "\n\(long)"
+            foundCondidate?.longitude = long
             self.longitudeLabel.text = "Longitude: " + long.description
         }
         if let lat = placemark.location?.coordinate.latitude {
             output = output + "\n\(lat)"
+            foundCondidate?.latitude = lat
             self.latitudeLabel.text = "Latitude: " + lat.description
         }
         print(output)
@@ -51,6 +56,12 @@ extension AddCityViewController {
 }
 //MARK: - IBActions
 extension AddCityViewController {
+    @IBAction func addCityButtonAction(_ sender: UIButton) {
+        OpenWeatherAPI.shared.getWeatherForPlace(params: ["lon":"10.801817114273911", "lat": "35.76654052734375"]) { res in
+            print(res)
+        }
+    }
+    
     @IBAction func getCurrentLocation(_ sender: UIButton) {
         if !locationManager.authorizationStatus.atLeastOnce {
             locationManager = LocationManager()

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OpenWeatherAPI
 
 class RootViewController: UIViewController {
     @IBOutlet weak var savedCitiesTableView: UITableView!
@@ -46,14 +47,14 @@ extension RootViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard  let emptyCell = tableView.dequeueReusableCell(withIdentifier: EmptyCell.reuseIdentifier, for: indexPath) as? EmptyCell else {
-//            return UITableViewCell() }
-//        return emptyCell
+        //        guard  let emptyCell = tableView.dequeueReusableCell(withIdentifier: EmptyCell.reuseIdentifier, for: indexPath) as? EmptyCell else {
+        //            return UITableViewCell() }
+        //        return emptyCell
         
         guard let cityPreviewCell = tableView.dequeueReusableCell(withIdentifier: CityPreviewCell.reuseIdentifier, for: indexPath) as? CityPreviewCell else {
             return UITableViewCell()
         }
         return cityPreviewCell
     }
-     
+    
 }

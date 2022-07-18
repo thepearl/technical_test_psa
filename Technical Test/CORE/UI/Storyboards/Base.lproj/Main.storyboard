@@ -103,13 +103,24 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
                                         </state>
                                         <connections>
+                                            <action selector="addCityButtonAction:" destination="Khg-6B-bv2" eventType="touchUpInside" id="fyG-L3-QDY"/>
                                             <action selector="addCityButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UFC-FD-TIq"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cFC-ZB-OMc">
+                                <rect key="frame" x="16" y="119" width="382" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Gup-Sw-3BK"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Khg-6B-bv2" id="1In-NO-4St"/>
+                                </connections>
+                            </searchBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="daQ-By-GCZ" userLabel="Place informations Stack View">
-                                <rect key="frame" x="16" y="119" width="382" height="200"/>
+                                <rect key="frame" x="16" y="184" width="382" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgL-ec-GLo">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
@@ -172,17 +183,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="daQ-By-GCZ" firstAttribute="trailing" secondItem="gih-hd-po1" secondAttribute="trailing" id="4GD-s7-yIF"/>
+                            <constraint firstItem="cFC-ZB-OMc" firstAttribute="trailing" secondItem="gih-hd-po1" secondAttribute="trailing" id="9GP-jI-4Xm"/>
                             <constraint firstItem="vCd-ja-9Fk" firstAttribute="leading" secondItem="wrm-a2-LcX" secondAttribute="leading" constant="16" id="CoE-Ks-d0c"/>
+                            <constraint firstItem="daQ-By-GCZ" firstAttribute="top" secondItem="cFC-ZB-OMc" secondAttribute="bottom" constant="15" id="I92-f6-c4a"/>
                             <constraint firstItem="gih-hd-po1" firstAttribute="top" secondItem="wrm-a2-LcX" secondAttribute="top" id="OFs-Sr-tiX"/>
-                            <constraint firstItem="daQ-By-GCZ" firstAttribute="top" secondItem="gih-hd-po1" secondAttribute="bottom" constant="15" id="TDo-Pu-VvV"/>
                             <constraint firstItem="daQ-By-GCZ" firstAttribute="leading" secondItem="gih-hd-po1" secondAttribute="leading" id="Wpb-2f-L5B"/>
                             <constraint firstItem="gih-hd-po1" firstAttribute="leading" secondItem="wrm-a2-LcX" secondAttribute="leading" constant="16" id="ZRU-dz-B64"/>
+                            <constraint firstItem="cFC-ZB-OMc" firstAttribute="top" secondItem="gih-hd-po1" secondAttribute="bottom" constant="15" id="afz-ZX-c1m"/>
                             <constraint firstItem="wrm-a2-LcX" firstAttribute="trailing" secondItem="gih-hd-po1" secondAttribute="trailing" constant="16" id="e00-Wv-bUg"/>
                             <constraint firstItem="wrm-a2-LcX" firstAttribute="bottom" secondItem="vCd-ja-9Fk" secondAttribute="bottom" constant="10" id="u07-pr-isu"/>
+                            <constraint firstItem="cFC-ZB-OMc" firstAttribute="leading" secondItem="gih-hd-po1" secondAttribute="leading" id="vyb-4U-mGi"/>
                             <constraint firstItem="wrm-a2-LcX" firstAttribute="trailing" secondItem="vCd-ja-9Fk" secondAttribute="trailing" constant="16" id="z6O-td-YJH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="citiesSearchBar" destination="cFC-ZB-OMc" id="XHc-wq-pPP"/>
                         <outlet property="countryLabel" destination="BgL-ec-GLo" id="lNs-vn-MZd"/>
                         <outlet property="latitudeLabel" destination="JwR-j2-tAM" id="D30-5b-XZd"/>
                         <outlet property="longitudeLabel" destination="KxC-xN-8a9" id="71y-mE-A9b"/>

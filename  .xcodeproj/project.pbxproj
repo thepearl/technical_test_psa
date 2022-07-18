@@ -23,8 +23,21 @@
 		85C2274028817FEA0048F174 /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85C2273E28817FEA0048F174 /* EmptyCell.xib */; };
 		85C227442882067D0048F174 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C227432882067D0048F174 /* LocationManager.swift */; };
 		85C22746288208CC0048F174 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C22745288208CC0048F174 /* AddCityViewController.swift */; };
-		85C227492882D9150048F174 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C227482882D9150048F174 /* Model.swift */; };
+		85DBD00F2884A361008C5098 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DBD00E2884A361008C5098 /* Constants.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		85DBD01A2884A8D5008C5098 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		85C2270C288172690048F174 /* Technical Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Technical Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,7 +58,8 @@
 		85C2273E28817FEA0048F174 /* EmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCell.xib; sourceTree = "<group>"; };
 		85C227432882067D0048F174 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		85C22745288208CC0048F174 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
-		85C227482882D9150048F174 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Model.swift; path = ../../../Model.swift; sourceTree = "<group>"; };
+		85DBD00E2884A361008C5098 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		85DBD01C2884A9DA008C5098 /* OpenWeatherAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OpenWeatherAPI; path = ../OpenWeatherAPI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +78,7 @@
 			children = (
 				85C2270E288172690048F174 /* Technical Test */,
 				85C2270D288172690048F174 /* Products */,
+				85DBD01B2884A9DA008C5098 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,7 +93,6 @@
 		85C2270E288172690048F174 /* Technical Test */ = {
 			isa = PBXGroup;
 			children = (
-				85C227472882D9010048F174 /* Framework */,
 				85C2273628817EF60048F174 /* UI */,
 				85C22726288172720048F174 /* Configurations */,
 				85C227282881729B0048F174 /* ViewControllers */,
@@ -95,6 +109,7 @@
 			children = (
 				85C227202881726D0048F174 /* Info.plist */,
 				85C2270F2881726A0048F174 /* AppDelegate.swift */,
+				85DBD00E2884A361008C5098 /* Constants.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -180,12 +195,12 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		85C227472882D9010048F174 /* Framework */ = {
+		85DBD01B2884A9DA008C5098 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				85C227482882D9150048F174 /* Model.swift */,
+				85DBD01C2884A9DA008C5098 /* OpenWeatherAPI */,
 			);
-			path = Framework;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +213,7 @@
 				85C22708288172690048F174 /* Sources */,
 				85C22709288172690048F174 /* Frameworks */,
 				85C2270A288172690048F174 /* Resources */,
+				85DBD01A2884A8D5008C5098 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,7 +280,6 @@
 				85C227142881726A0048F174 /* RootViewController.swift in Sources */,
 				85C2271A2881726A0048F174 /* Technical_Test.xcdatamodeld in Sources */,
 				85C227442882067D0048F174 /* LocationManager.swift in Sources */,
-				85C227492882D9150048F174 /* Model.swift in Sources */,
 				85C22730288177180048F174 /* Extension.UIScreen.swift in Sources */,
 				85C2273928817F380048F174 /* CityPreviewCell.swift in Sources */,
 				85C22734288177690048F174 /* Extension.UIViewController.swift in Sources */,
@@ -273,6 +288,7 @@
 				85C2272C2881755D0048F174 /* Extensions.Common.swift in Sources */,
 				85C227322881773B0048F174 /* Extension.UIApplication.swift in Sources */,
 				85C2273F28817FEA0048F174 /* EmptyCell.swift in Sources */,
+				85DBD00F2884A361008C5098 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +436,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D8L4KTPGCD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Technical Test/Configurations/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -449,6 +469,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D8L4KTPGCD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Technical Test/Configurations/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

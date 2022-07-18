@@ -1,0 +1,112 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name OpenWeatherAPI
+import Foundation
+@_exported import OpenWeatherAPI
+import Swift
+import _Concurrency
+extension OpenWeatherAPI.OpenWeatherAPI {
+  public func getWeather(params: [Swift.String : Swift.String], completion: @escaping (OpenWeatherAPI.OWResponse?) -> ())
+}
+public struct CityCoordModel : Swift.Codable {
+  public var name: Swift.String?
+  public var localNames: OpenWeatherAPI.LocalNames?
+  public var lat: Swift.Double?, lon: Swift.Double?
+  public var country: Swift.String?, state: Swift.String?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct LocalNames : Swift.Codable {
+  public var it: Swift.String?, sc: Swift.String?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension OpenWeatherAPI.OpenWeatherAPI {
+  public func getWeather(city name: Swift.String, completion: @escaping (OpenWeatherAPI.OWResponse?) -> ())
+}
+public struct OWResponse : Swift.Codable {
+  public var coordinations: OpenWeatherAPI.Coord?
+  public var weather: [OpenWeatherAPI.Weather]?
+  public var base: Swift.String?
+  public var main: OpenWeatherAPI.Main?
+  public var visibility: Swift.Int?
+  public var wind: OpenWeatherAPI.Wind?
+  public var clouds: OpenWeatherAPI.Clouds?
+  public var dt: Swift.Double?
+  public var sys: OpenWeatherAPI.Sys?
+  public var timezone: Swift.Int?, id: Swift.Int?
+  public var name: Swift.String?
+  public var statusCode: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Clouds : Swift.Codable {
+  public var all: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Coord : Swift.Codable {
+  public var lon: Swift.Double?, lat: Swift.Double?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Main : Swift.Codable {
+  public var temp: Swift.Double?, feelsLike: Swift.Double?, tempMin: Swift.Double?, tempMax: Swift.Double?
+  public var pressure: Swift.Int?, humidity: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Sys : Swift.Codable {
+  public var type: Swift.Int?, id: Swift.Int?
+  public var country: Swift.String?
+  public var sunrise: Swift.Int?, sunset: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Weather : Swift.Codable {
+  public var id: Swift.Int?
+  public var main: Swift.String?, weatherDescription: Swift.String?, icon: Swift.String?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Wind : Swift.Codable {
+  public var speed: Swift.Double?
+  public var deg: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers open class OpenWeatherAPI {
+  public static var shared: OpenWeatherAPI.OpenWeatherAPI
+  public static var apiVersion: Swift.String
+  public static var apiKey: Swift.String
+  public static var isErrorLoggingEnabled: Swift.Bool
+  public static var service: OpenWeatherAPI.OWServicesTypes
+  @objc deinit
+}
+extension OpenWeatherAPI.OpenWeatherAPI {
+  public enum StatusCodeType {
+    case informational, successful, redirection, clientError, serverError, cancelled, unknown
+    public static func == (a: OpenWeatherAPI.OpenWeatherAPI.StatusCodeType, b: OpenWeatherAPI.OpenWeatherAPI.StatusCodeType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+}
+extension Swift.Int {
+  public var statusCodeType: OpenWeatherAPI.OpenWeatherAPI.StatusCodeType {
+    get
+  }
+}
+public struct OWServicesTypes : Swift.RawRepresentable {
+  public var rawValue: Swift.String
+  public static let currentWeather: OpenWeatherAPI.OWServicesTypes
+  public static let direct: OpenWeatherAPI.OWServicesTypes
+  public static let oneCall: OpenWeatherAPI.OWServicesTypes
+  public static let forecast: OpenWeatherAPI.OWServicesTypes
+  public static let climate: OpenWeatherAPI.OWServicesTypes
+  public init(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+}
+extension OpenWeatherAPI.OpenWeatherAPI.StatusCodeType : Swift.Equatable {}
+extension OpenWeatherAPI.OpenWeatherAPI.StatusCodeType : Swift.Hashable {}
