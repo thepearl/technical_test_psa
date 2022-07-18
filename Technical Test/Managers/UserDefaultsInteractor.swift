@@ -6,39 +6,34 @@
 //
 
 import Foundation
-public func getVideosFromCache() -> [String: Video] {
-    guard let data = userDefaults.data(forKey: "cachedVideos") else {
-        return [:]
-    }
-    
-    guard let value = try? JSONDecoder().decode([String: Video].self, from: data) else {
-        print("Cannot decode any cached video")
-        return [:]
-    }
-    
-    return value
-}
+import OpenWeatherAPI
 
-public func setVideosToCache(_ key: String, value: Video) {
-    var alreadyCachedVideos = getVideosFromCache()
-    alreadyCachedVideos[key] = value
-    
-    guard let data = try? JSONEncoder().encode(alreadyCachedVideos) else {
-        print("Cannot encode data")
-        return
+public class UserDefaultsInteractor {
+    private init() { }
+    public static let shared = UserDefaultsInteractor()
+    private var userDefaults = UserDefaults.standard
+    public func getCitiesFromCache() -> [OWResponse] {
+        guard let data = userDefaults.data(forKey: "cachedCities") else {
+            return []
+        }
+        
+        guard let value = try? JSONDecoder().decode([OWResponse].self, from: data) else {
+            print("Cannot decode any cached video")
+            return []
+        }
+        
+        return value
     }
     
-    userDefaults.set(data, forKey: "cachedVideos")
-}
-
-public func deleteObjectFromCache(_ key: String) {
-    var alreadyCachedVideos = getVideosFromCache()
-    alreadyCachedVideos.removeValue(forKey: key)
-    
-    guard let data = try? JSONEncoder().encode(alreadyCachedVideos) else {
-        print("Cannot encode data")
-        return
+    public func insertCityToCache(_ city: OWResponse) {
+        var alreadyCachedCities = getCitiesFromCache()
+        alreadyCachedCities.append(city)
+        
+        guard let data = try? JSONEncoder().encode(alreadyCachedCities) else {
+            print("Cannot encode data")
+            return
+        }
+        
+        userDefaults.set(data, forKey: "cachedCities")
     }
-
-    userDefaults.set(data, forKey: "cachedVideos")
 }
