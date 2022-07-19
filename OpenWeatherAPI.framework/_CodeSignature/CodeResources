@@ -14,23 +14,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		icKfVCGMwJqIYe8EHJXeOyReHyU=
+		E82ZHdJ8+zX9Gi0hPn9/B2WJIz4=
 		</data>
-		<key>Modules/OpenWeatherAPI.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
+		<key>Modules/OpenWeatherAPI.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		IzAGPNn18X75QP8BBXTKc5zrG7I=
+		lSWFhYO0oDdHIQEueCOBP9bUUag=
 		</data>
-		<key>Modules/OpenWeatherAPI.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<key>Modules/OpenWeatherAPI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		GKNeOuq7qc3GcRyASk0QG0abQbI=
+		AUowAKaIKMzg4/w0IguJM7JknBw=
 		</data>
-		<key>Modules/OpenWeatherAPI.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<key>Modules/OpenWeatherAPI.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		pCg6ZrLMdlsu/2YUFisaBr9OSk4=
+		QWfC4CqoFyxAPvKIK9pkk8JQpq0=
 		</data>
-		<key>Modules/OpenWeatherAPI.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<key>Modules/OpenWeatherAPI.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		TB2BgpXdHGfHXBTzw5tlrYM51d4=
+		Nwt+1aaIqnecRdtMViL//Su5n5Y=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -53,32 +53,32 @@
 			mYEp78nKDL/zD+ST+SaNOhNJXUSnECMvI6MPl70Bg+w=
 			</data>
 		</dict>
-		<key>Modules/OpenWeatherAPI.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
+		<key>Modules/OpenWeatherAPI.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			H/N32acUE+N+z5Iyz/U4nonDPkP6oP0jRETRI5CTp/U=
+			zUYH33y/9jE6jFmsyT4dLFEgcYDgivJXm/HYJY+edoE=
 			</data>
 		</dict>
-		<key>Modules/OpenWeatherAPI.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<key>Modules/OpenWeatherAPI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lOKfgwDpkCFgJ66qah4gIXnWDQ2izN0wsjXuUkE3Jxo=
+			196jbYt/oIk1GAoodmZFP2zgDJ7t7PUDpjvWXlMf3T8=
 			</data>
 		</dict>
-		<key>Modules/OpenWeatherAPI.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<key>Modules/OpenWeatherAPI.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			N4lWFab9Wm0p2K/Ip6FF0AFgWJuE6Qo7R01gX+DrGy4=
+			j8ppIDPYXrtiHcLYBopSLMwWZQVJ4HDYjhgC6EuRb/c=
 			</data>
 		</dict>
-		<key>Modules/OpenWeatherAPI.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<key>Modules/OpenWeatherAPI.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xDf15g9fKV1zI4/9ziIQem4xenUVOzS+NQKDmZPE88A=
+			JX8BuApwgMmPpEe9QTkhYWzBiSh3+1eqoe8urZEMjc4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

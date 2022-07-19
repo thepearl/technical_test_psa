@@ -12,8 +12,8 @@
 		85375E1D2885FDC400C6AA77 /* Extension.Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85375E1C2885FDC400C6AA77 /* Extension.Double.swift */; };
 		853A00DD2885865200FA7ECC /* Previewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853A00DC2885865200FA7ECC /* Previewable.swift */; };
 		853A00DF2885867900FA7ECC /* Extension.OWResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853A00DE2885867900FA7ECC /* Extension.OWResponse.swift */; };
-		853FB45428861DDD00FA5A33 /* OpenWeatherAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 853FB45228861D5A00FA5A33 /* OpenWeatherAPI.framework */; };
-		853FB45528861DDD00FA5A33 /* OpenWeatherAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 853FB45228861D5A00FA5A33 /* OpenWeatherAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		853FB45E2886C8BD00FA5A33 /* OpenWeatherAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 853FB45C2886C8B000FA5A33 /* OpenWeatherAPI.framework */; };
+		853FB45F2886C8BD00FA5A33 /* OpenWeatherAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 853FB45C2886C8B000FA5A33 /* OpenWeatherAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		85C227102881726A0048F174 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C2270F2881726A0048F174 /* AppDelegate.swift */; };
 		85C227142881726A0048F174 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C227132881726A0048F174 /* RootViewController.swift */; };
 		85C227172881726A0048F174 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C227152881726A0048F174 /* Main.storyboard */; };
@@ -41,7 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				853FB45528861DDD00FA5A33 /* OpenWeatherAPI.framework in Embed Frameworks */,
+				853FB45F2886C8BD00FA5A33 /* OpenWeatherAPI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,7 +54,7 @@
 		85375E1C2885FDC400C6AA77 /* Extension.Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.Double.swift; sourceTree = "<group>"; };
 		853A00DC2885865200FA7ECC /* Previewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previewable.swift; sourceTree = "<group>"; };
 		853A00DE2885867900FA7ECC /* Extension.OWResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.OWResponse.swift; sourceTree = "<group>"; };
-		853FB45228861D5A00FA5A33 /* OpenWeatherAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenWeatherAPI.framework; sourceTree = "<group>"; };
+		853FB45C2886C8B000FA5A33 /* OpenWeatherAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenWeatherAPI.framework; sourceTree = "<group>"; };
 		85C2270C288172690048F174 /* Technical Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Technical Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C2270F2881726A0048F174 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85C227132881726A0048F174 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				853FB45428861DDD00FA5A33 /* OpenWeatherAPI.framework in Frameworks */,
+				853FB45E2886C8BD00FA5A33 /* OpenWeatherAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +110,7 @@
 		85C22703288172690048F174 = {
 			isa = PBXGroup;
 			children = (
-				853FB45228861D5A00FA5A33 /* OpenWeatherAPI.framework */,
+				853FB45C2886C8B000FA5A33 /* OpenWeatherAPI.framework */,
 				85C2270E288172690048F174 /* Technical Test */,
 				85C2270D288172690048F174 /* Products */,
 			);
@@ -386,6 +386,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -407,6 +408,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -446,6 +448,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -457,10 +460,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
